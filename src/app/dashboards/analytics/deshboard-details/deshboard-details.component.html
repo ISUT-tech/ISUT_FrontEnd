@@ -1,0 +1,39 @@
+<mat-toolbar matDialogTitle class="mat-accent m-0" style="background: #000; color:white">
+  <mat-toolbar-row>
+    <span class="title"> Details</span>
+    <span class="fill-remaining-space"></span>
+    <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog" style="margin-left: 453px">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+<ng-container>
+  <mat-card>
+
+    <table >
+      <tr>
+        <td class="heading-class">DriverId </td>
+        <td><span>{{dataSource.driverId}}</span></td>
+      </tr>
+      <tr>
+        <td class="heading-class"> UserMobile Number </td>
+        <td><span>{{dataSource.userMobileNumber}}</span></td>
+      </tr>
+      <tr>
+        <td class="heading-class"> Source Location </td>
+        <td><span>{{dataSource.sourceLocation}}</span></td>
+      </tr>
+      <tr>
+        <td class="heading-class"> Destination Location </td>
+        <td><span>{{dataSource.destinationLocation}}</span></td>
+      </tr>
+        <br>
+    </table>
+  </mat-card>
+   </ng-container>
+</mat-dialog-content>
+
+
+
+

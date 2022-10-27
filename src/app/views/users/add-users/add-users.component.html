@@ -1,0 +1,60 @@
+<mat-toolbar
+  matDialogTitle
+  class="mat-accent m-0"
+  style="background: #000; color: white"
+>
+  <mat-toolbar-row>
+    <h2 class="title">Add Admin</h2>
+    <span class="fill-remaining-space"></span>
+    <button
+      mat-icon-button
+      (click)="matDialogRef.close()"
+      aria-label="Close dialog"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<form [formGroup]="AddUsers">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>FullName </mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter the FullName "
+        formControlName="fullName"
+      /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="outline">
+      <mat-label>MobileNumber</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="Enter  mobileNumber"
+        formControlName="mobileNumber"
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter  email"
+        formControlName="email"
+      />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions style="display: block">
+    <div style="display: center">
+      <button
+        mat-raised-button
+        (click)="sumit()"
+        [disabled]="AddUsers.invalid"
+      >
+        ADD
+      </button>
+    </div>
+  </mat-dialog-actions>
+</form>

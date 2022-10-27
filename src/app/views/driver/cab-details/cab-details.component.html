@@ -1,0 +1,88 @@
+<mat-toolbar
+  matDialogTitle
+  class="mat-accent m-0"
+  style="background: #000; color: white"
+>
+  <mat-toolbar-row>
+    <h2 class="title">Cab Details</h2>
+    <span class="fill-remaining-space"></span>
+    <button
+      mat-icon-button
+      (click)="matDialogRef.close()"
+      aria-label="Close dialog"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+  <ng-container>
+    <mat-card>
+      <table style="display: flex">
+        <div class="profile">
+          <tr>
+            <td>
+              <img
+                [src]="_utilityService.getImageUrl(dataSource.carImages, 'cab')"
+                (error)="_utilityService.onImgError($event)"
+                style="
+                  width: 120px;
+                  height: 120px;
+                  border: 4px solid;
+                  display: flex;
+                "
+              />
+            </td>
+          </tr>
+        </div>
+        <div
+          class="details"
+          style="display: flex; align-items: center; margin: left 15px"
+        >
+          <tr>
+            <td class="heading-class">CarName</td>
+            <td>
+              <span>{{ dataSource.carName }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="heading-class">CarNumber</td>
+            <td>
+              <span>{{ dataSource.carNumber }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="heading-class">City</td>
+            <td>
+              <span>{{ dataSource.city }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="heading-class">State</td>
+            <td>
+              <span>{{ dataSource.state }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="heading-class">CarModel</td>
+            <td>
+              <span>{{ dataSource.carModel }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="heading-class">Email</td>
+            <td>
+              <span>{{ dataSource.email }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="heading-class">LicenseNumber</td>
+            <td>
+              <span>{{ dataSource.licenseNumber }}</span>
+            </td>
+          </tr>
+        </div>
+      </table>
+    </mat-card>
+  </ng-container>
+</mat-dialog-content>

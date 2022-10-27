@@ -1,0 +1,78 @@
+<mat-toolbar
+  matDialogTitle
+  class="mat-accent m-0"
+  style="background: #000; color: white"
+>
+  <mat-toolbar-row>
+    <h2 class="title">Feedback Details</h2>
+    <span class="fill-remaining-space"></span>
+    <button
+      mat-icon-button
+      (click)="matDialogRef.close()"
+      aria-label="Close dialog"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+  <mat-card>
+    <div
+      class="flex flex-col flex-auto sm:mb-18 overflow-hidden sm:overflow-y-auto page-layout carded fullwidth inner-scroll body"
+    >
+      <mat-card-content style="overflow: auto !important">
+        <br />
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Booking Id Column -->
+          <ng-container matColumnDef="bookingId">
+            <th mat-header-cell *matHeaderCellDef>Booking Id</th>
+            <td mat-cell *matCellDef="let element">{{ element.bookingId }}</td>
+          </ng-container>
+          <!-- Created at Column -->
+          <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef>Created At</th>
+            <td mat-cell *matCellDef="let element">{{ element.createdAt }}</td>
+          </ng-container>
+          <!-- Driver Id Column -->
+          <ng-container matColumnDef="driverId">
+            <th mat-header-cell *matHeaderCellDef>Driver Id</th>
+            <td mat-cell *matCellDef="let element">{{ element.driverId }}</td>
+          </ng-container>
+          <!-- Feedback Column -->
+          <ng-container matColumnDef="feedback">
+            <th mat-header-cell *matHeaderCellDef>Feedback</th>
+            <td mat-cell *matCellDef="let element">{{ element.feedback }}</td>
+          </ng-container>
+          <!-- User Id Column -->
+          <ng-container matColumnDef="userId">
+            <th mat-header-cell *matHeaderCellDef>User Id</th>
+            <td mat-cell *matCellDef="let element">{{ element.userId }}</td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="rightPadding">Actions</th>
+            <td mat-cell *matCellDef="let element" class="rightPadding">
+              <button mat-icon-button color="black" [matMenuTriggerFor]="action">
+                <mat-icon> more_vert </mat-icon>
+              </button>
+              <mat-menu #action="matMenu">
+                <mat-divider style="background-color: #000"></mat-divider>
+                <button mat-menu-item (click)="view()">
+                  <mat-icon style="cursor: pointer; color: #000"
+                    >add
+                  </mat-icon>
+                  Add Feedback
+                </button>
+                <mat-divider></mat-divider>
+              </mat-menu>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns; let i = index"
+          ></tr>
+        </table>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</mat-dialog-content>

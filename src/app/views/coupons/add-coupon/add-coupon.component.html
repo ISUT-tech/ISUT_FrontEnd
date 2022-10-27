@@ -1,0 +1,77 @@
+<mat-toolbar
+  matDialogTitle
+  class="mat-accent m-0"
+  style="background: #000; color: white"
+>
+  <mat-toolbar-row>
+    <h2 class="title">Add User</h2>
+    <span class="fill-remaining-space"></span>
+    <button
+      mat-icon-button
+      (click)="matDialogRef.close()"
+      aria-label="Close dialog"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<form [formGroup]="CouponData">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Coupon Code </mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter the Coupon code"
+        formControlName="code"
+      /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="outline">
+      <mat-label>Coupon Description</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter Coupon description"
+        formControlName="description"
+      />
+    </mat-form-field >
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Discount</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter discount"
+        formControlName="discount"
+      />
+    </mat-form-field >
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Start date</mat-label>
+     <input
+        matInput
+        [matDatepicker]="start" [(ngModel)]="startDate"
+        formControlName="startDate"
+        readonly
+      />
+      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+      <mat-datepicker #start></mat-datepicker> </mat-form-field
+    ><br />
+    <mat-form-field appearance="outline">
+      <mat-label>End date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="end" [min]="startDate" [(ngModel)]="endDate"
+        formControlName="endDate"
+        readonly
+      />
+      <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+      <mat-datepicker #end></mat-datepicker>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions style="display: block">
+    <div style="display: center">
+      <button mat-raised-button (click)="sumit()" [disabled]="CouponData.invalid">ADD</button>
+    </div>
+  </mat-dialog-actions>
+</form>
